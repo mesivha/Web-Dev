@@ -1,0 +1,156 @@
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --color-bg: #0a0a0f;
+    --color-grid: rgba(68, 85, 129, 0.15);
+    --color-container-bg: rgba(20, 20, 30, 0.7);
+    --color-border: rgba(139, 92, 246, 0.3);
+    --color-text: #e2e8f0;
+    --color-text-muted: #94a3b8;
+    --color-heading: #ffffff;
+    --color-accent-purple: #a78bfa;
+    --color-accent-blue: #7dd3fc;
+    --neon-glow-shadow: 0 0 15px rgba(139, 92, 246, 0.4), 0 0 30px rgba(99, 102, 241, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.2);
+    --border-radius-lg: 16px;
+    --border-radius-md: 12px;
+    --padding-container: 40px;
+    --padding-element: 15px;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-bg);
+    background-image:
+        linear-gradient(var(--color-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    background-size: 40px 40px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.container {
+    background: var(--color-container-bg);
+    padding: var(--padding-container);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--neon-glow-shadow);
+    text-align: center;
+    width: 100%;
+    max-width: 550px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--color-heading);
+    text-shadow: 0 0 8px rgba(167, 139, 250, 0.3);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input[type="text"] {
+    font-family: var(--font-primary);
+    padding: var(--padding-element) 45px var(--padding-element) 20px;
+    width: calc(100% - 65px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 25px;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: var(--color-text-muted);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-accent-purple);
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.4);
+}
+
+button {
+    padding: var(--padding-element) 30px;
+    background-image: linear-gradient(45deg, var(--color-accent-purple), var(--color-accent-blue));
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(167, 139, 250, 0.3), 0 0 15px rgba(125, 211, 252, 0.2);
+}
+
+button:active {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 4px 15px rgba(167, 139, 250, 0.2);
+}
+
+#output {
+    margin-top: 30px;
+    text-align: left;
+    background: rgba(10, 10, 15, 0.5);
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    min-height: 50px;
+    line-height: 1.6;
+    color: var(--color-text);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    transition: all 0.4s ease-in-out;
+    border: 1px solid transparent;
+}
+
+#output:not(:empty) {
+     border-color: var(--color-border);
+     box-shadow: inset 0 0 10px rgba(10, 10, 15, 0.5);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+    .container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+    h2 {
+        font-size: 1.75rem;
+    }
+    input[type="text"], button {
+        font-size: 0.95rem;
+        padding: 12px;
+    }
+    input[type="text"] {
+        padding: 12px 40px 12px 15px;
+        width: calc(100% - 55px);
+    }
+    button {
+        padding: 12px 25px;
+    }
+}
